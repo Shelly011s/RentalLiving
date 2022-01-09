@@ -1,0 +1,24 @@
+<% include ../partials/header %>
+
+<div class="row w-50 h-50 m-auto border border-success border-2 rounded p-2 mt-2 mb-2 bg-light text-success">
+	<div class="col-md-4">
+			<h2><%= user.Name %></h2>
+		<div class="thumbnail">
+			<img class="border rounded-3" style = "width:75%;  height: 75%;" src="<%= user.avatar %>" alt="user profile image">
+			<div class="mt-2" ><a href="mailto:<%= user.email %>"><%= user.email %></a></div>
+		</div>
+	</div>
+	<div class="col-md-8 ">
+		<h3><%= user.username %>'s Houses on Rent: </h3>
+		<ul>
+		<% houses.forEach(function(house) { %>
+			<li><a href="/houses/<%= house.id %>"><%= house.name %></a></li>
+		<% }); %>
+		</ul>
+	</div>
+	<% if(currentUser && user._id.equals(currentUser._id)){ %>
+	<a class= "btn btn-primary mt-2 "href="/users/<%=user._id %>/edit" >Edit</a>
+	<% } %>
+</div>
+
+<% include ../partials/footer %>

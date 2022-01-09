@@ -1,0 +1,14 @@
+<% include ./partials/header %>
+<div class="row w-25 h-50 m-auto border border-primary border-2 rounded p-2 mt-2 mb-2 bg-light">
+	<div class="col-md-12">
+		<form action="/forgot" method="POST">
+			<legend><strong> Forgot Password</strong> </legend>
+			
+				<label for="email" class="form-label">Email</label>
+				<input type="email" class="form-control mb-2" name="email" autofocus class="form-control">
+				
+				<input type="submit" class="btn btn-primary" value="Reset">
+			</form>
+	</div>
+</div>
+<% include ./partials/footer %>

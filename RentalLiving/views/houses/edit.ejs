@@ -1,0 +1,24 @@
+<% include ../partials/header %>
+<div class="w-50 m-auto border border-primary border-2 rounded pt-2 mt-2 mb-2 bg-light">
+    <div class="row">
+        <h1 style="text-align: center">Edit <%= house.name %></h1>
+        <div class = "w-75"style=" margin: 25px auto;">
+            <form action="/houses/<%= house._id %>?_method=PUT" method="POST" enctype="multipart/form-data">                
+                    <input class="form-control mb-3" type="text" name="house[name]" value="<%= house.name %>" required>                             
+                    
+                    <input class="form-control mb-3" type="file" id="image" name="image[]" accept="image/*" multiple>
+                                
+                    <input class="form-control mb-3" type="number" name="house[price]" value="<%= house.price %>">
+
+                    <input class="form-control mb-3" type="text" name="house[location]" value="<%= house.location %>">
+                                
+                    <textarea rows = "3" class="form-control mb-3" name="house[description]" "><%= house.description %></textarea>
+                                
+                    <button class="btn btn-primary mb-2">Submit!</button>
+            </form>
+            <a href="/houses">Go Back</a>
+        </div>
+    </div>
+</div>
+<% include ../partials/footer %>
+
