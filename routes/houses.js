@@ -92,8 +92,8 @@ router.post("/", middleware.isLoggedIn, upload.array("image[]",3), async functio
     req.body.house.imageId = [];
     for (const file of req.files) {
         let result = await cloudinary.uploader.upload(file.path);
-        req.body.house.image.push(result.public_id);
-        req.body.house.imageId.push(result.secure_url);
+        req.body.house.imageId.push(result.public_id);
+        req.body.house.image.push(result.secure_url);
     }
 
     House.create(req.body.house, function(err, house) {
