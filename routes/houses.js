@@ -87,7 +87,8 @@ router.post("/", middleware.isLoggedIn, upload.array("image[]",3), async functio
         id: req.user._id,
         username: req.user.username
     };
-
+    
+    try{
     req.body.house.image = [];
     req.body.house.imageId = [];
     for (const file of req.files) {
@@ -95,7 +96,11 @@ router.post("/", middleware.isLoggedIn, upload.array("image[]",3), async functio
         req.body.house.imageId.push(result.public_id);
         req.body.house.image.push(result.secure_url);
     }
-
+    }catch(err) {
+        req.flash("error", err.message);
+        return res.redirect("back");
+    }
+  
     House.create(req.body.house, function(err, house) {
         if (err) {
             req.flash('error', err.message);
