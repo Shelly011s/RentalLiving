@@ -37,9 +37,9 @@
          
      </header>
           
-     <div class="row text-center m-auto" style="display:flex; flex-wrap: wrap;">
+     <div class="row text-center m-auto" style="display:flex; flex-wrap: wrap; justify-content: space-between;">
         <% houses.forEach(function(house){ %>
-            <div class="col-md-3 col-sm-6 border rounded-3 border-success p-0 m-3 bg-light">
+            <div class="col-md-3 col-sm-6 border rounded-3 border-success p-0 mb-2 bg-light">
                 <div class="thumbnail border rounded-3">
                     
                    <img src="<%= house.image[0] %>">
