@@ -1,0 +1,15 @@
+<% include ../partials/header %>
+<div class="w-50 mx-auto border border-success border-2 rounded mt-2 mb-2 bg-light ">
+    <div class="row">
+        <h1 style="text-align: center">Edit Comment</h1>
+        <div style="width: 75%; margin: 25px auto;">
+            <form action="/houses/<%= house_id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+                <textarea rows="2" class="form-control mb-2" type="text" name="comment[text]"><%= comment.text %></textarea>
+                <button class="btn btn-lg btn-success mb-2">Submit!</button>
+            </form>
+            <a href="/houses">Go Back</a>
+        </div>
+    </div>
+</div>
+<% include ../partials/footer %>
+
